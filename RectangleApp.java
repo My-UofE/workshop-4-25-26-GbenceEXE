@@ -18,11 +18,11 @@ public class RectangleApp {
 		System.out.println("\nMoving myRect1");
 		myRect1.move(0,10);//the object's state is changed
 		System.out.println("Origin is: "+myRect1.originX+","+myRect1.originY);
-
+		
 		System.out.println("Changing width of myRect1");
 		myRect1.width = 16;//the object's state is changed
 		System.out.println("Width: "+myRect1.width+", Height: "+myRect1.height);
-
+		
 		
 		System.out.println();
 		System.out.println("Creating myRect2");
@@ -36,6 +36,37 @@ public class RectangleApp {
 		Rectangle myRect3 = new Rectangle(); 
 		System.out.println("Width: "+myRect3.width+", Height: "+myRect3.height);
 		System.out.println("Origin: "+myRect3.originX+","+myRect3.originY);
-
+		
+		
+		System.out.println();
+		System.out.println("1: Width: "+myRect1.width+", Height: "+myRect1.height);
+		myRect1.scale(0.5); // applies 0.5 scale to both x and y, changing width to 8, height to 4
+		System.out.println("1: Width: "+myRect1.width+", Height: "+myRect1.height);
+		
+		System.out.println("2: Width: "+myRect2.width+", Height: "+myRect2.height);
+		myRect2.scale(1,3); // should change height to 24 with width unchanged
+		System.out.println("2: Width: "+myRect2.width+", Height: "+myRect2.height);
+		
+		System.out.println("3: Width: "+myRect3.width+", Height: "+myRect3.height);
+		myRect3.scale(15,10); // should scale to width 15, height 10
+		System.out.println("3: Width: "+myRect3.width+", Height: "+myRect3.height);
+		
+		
+		System.out.println();
+		Rectangle myRect4 = new Rectangle(30.0, 5.0, 10, 10); 
+		Rectangle myRect5 = new Rectangle(50.0, 20.0, 0, 0); 
+		Rectangle myRect6 = new Rectangle(20.0, 40.0, 500, 500); 
+		
+		// myRect4 overlaps myRect5 so these should show as true
+		System.out.println( "myRect4 overlaps myRect5: " + myRect4.isOverlappedWith(myRect5) ) ; 
+		System.out.println( "myRect5 overlaps myRect4: " + myRect5.isOverlappedWith(myRect4) ) ;
+		
+		// myRect4 does not overlap myRect6 so these should show as false
+		System.out.println( "myRect4 overlaps myRect6: " + myRect4.isOverlappedWith(myRect6) ) ;
+		System.out.println( "myRect6 overlaps myRect4: " + myRect6.isOverlappedWith(myRect4) ) ;
+		
+		boolean result = Rectangle.areOverlapping(myRect4, myRect5);
+		System.out.println( "myRect4 overlaps myRect5: "+result);
+		
 	}
 }
