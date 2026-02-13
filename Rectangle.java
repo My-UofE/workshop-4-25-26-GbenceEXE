@@ -5,10 +5,10 @@ import org.w3c.dom.css.Rect;
 public class Rectangle {
     
     // 4 instance attributes
-    public double width;
-    public double height;
-    public double originX = 0.0;
-    public double originY = 0.0;
+    private double width;
+    private double height;
+    private double originX = 0.0;
+    private double originY = 0.0;
     
     // 1 static attributes
     public static final int NUMBER_OF_SIDES = 4;
@@ -30,7 +30,29 @@ public class Rectangle {
     public Rectangle() {
         this(1, 1, 0, 0);
     }
+
+    public double getWidth(){return width;}
+    public double getHeight(){return height;}
+    public double getOriginX(){return originX;}
+    public double getOriginY(){return originY;}
     
+    public void setWidth(double width){
+        if (width > 0) {
+            this.width = width;
+        }
+    }
+
+    public void setHeight(double height){
+        if (height > 0) {
+            this.height = height;
+        }
+    }
+
+
+    public void setOriginX(double originX){this.originX = originX;}
+    public void setOriginY(double originY){this.originY = originY;}
+
+
     // method: move the rectangle
     public void move(double dx, double dy) {
         originX += dx;
